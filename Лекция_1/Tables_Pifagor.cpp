@@ -34,8 +34,5 @@ int main()
     for(int i=0;i<=(s+1)*6+1;i++){
         printf("-");
     }
-
-    //printf ("% 4d", 1);
-    //printf ("1\t2\n123\t2\n");
     return 0;
 }
