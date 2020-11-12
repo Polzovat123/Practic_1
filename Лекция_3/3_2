@@ -44,7 +44,7 @@ void write_a_byte(char number, bool position){
 
 void write_all_byte(char *number, int len){
     for(int i=0;i<len;i++){
-        write_byte(*number+i, (i+1)%len==0 );
+        write_byte(*number++, (i+1)%len==0 );
         printf(" ");
     }
     printf("\n");
@@ -52,7 +52,7 @@ void write_all_byte(char *number, int len){
 
 void write_reverso(char *number, int len){
     for(int i=0;i<len;i++){
-        write_r_byte(*number+i, (i+1)%len==0 );
+        write_r_byte(*number++, (i+1)%len==0 );
         printf(" ");
     }
     printf("\n");
@@ -61,17 +61,13 @@ void write_reverso(char *number, int len){
 void write_additional(char *number, int len){
     last = true;
     for(int i=0;i<len;i++){
-        write_a_byte(*number+i, (i+1)%len==0 );
+        write_a_byte(*number++, (i+1)%len==0 );
         printf(" ");
     }
     printf("\n");
 }
 
-void write_info(long long a, int len){
-    long long h=a;
-    zn = false;
-    if(a<0){h=abs(a); zn = true;}
-    char *number = (char *)&h;
+void write_info(long long a, int len, char *number){
     printf("Straight code:   ");
     write_all_byte(number, len);
     printf("Reverse code:    ");
@@ -86,12 +82,26 @@ int main()
 {
     int a;
     cin>>a;
-    write_info(a,sizeof(short));
+    zn = false;
+    long long h=a;
+    if(a<0){h=abs(a); zn = true;}
+    char *number = (char *)&h;
+    write_info(a,sizeof(short), number);
+
     short b;
     cin>>b;
-    write_info(b,sizeof(int));
+    zn = false;
+    h=b;
+    if(b<0){h=abs(b); zn = true;}
+    char *numberb = (char *)&h;
+    write_info(b,sizeof(int), numberb);
+
     long long c;
     cin>>c;
-    write_info(c,sizeof(long long));
+    zn = false;
+    h=c;
+    if(c<0){h=abs(c); zn = true;}
+    char *numberc = (char *)&h;
+    write_info(c,sizeof(long long), numberc);
     return 0;
 }
