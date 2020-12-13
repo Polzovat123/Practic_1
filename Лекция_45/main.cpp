@@ -317,37 +317,28 @@ void third_function(char *f, int start, int finish){
     printf("strdel4(\" %s \", %i, %i ) = %s\n", f, start, finish, fourth_strdel(f, start, finish, l));
 }
 
-bool first_strcmp(char *a, char *b){
-    if(arithm_length(a) != arithm_length(b)){
-        //printf("strcmp1(\" %s \", \" %s \") = false\n", a, b);
-        return false;
-    }
-    for(int i=0; i<arithm_length(a);i++){
-        if(a[i]!=b[i]){
-	  return false;
-	  //printf("strcmp1(\" %s \", \" %s \") = false\n", a, b);
+int first_strcmp(char *a, char *b){
+  for(; *a && (*a==*b); *a++, *b++);
+  return (*a > *b)-(*b > *a);
+}
+
+int second_strcmp(char *a, char *b){
+    for(int i=0; i<arithm_length(a); i++){
+        //cout<<i<<" "<<a[i]<<" "<<arithm_length(b)<<" "<<b[arithm_length(b)-1]<<endl;
+        if(i==arithm_length(b)-1 && arithm_length(a) <=arithm_length(b)){
+            if(a[i] - b[i]!=0)return (a[i] - b[i])/abs(a[i] - b[i]);
+            return a[i] - b[i];
+        }else{
+            if(a[i] != b[i])return (a[i] - b[i])/abs(a[i] - b[i]);
         }
     }
-    //printf("strcmp1(\" %s \", \" %s \") = true\n", a, b);
-    return true;
-}
-
-bool rekursion_strcmp(char *a, char *b, int now_index){
-    if(now_index < arithm_length(a) && now_index < arithm_length(b) && a[now_index] == b [now_index]){
-        return rekursion_strcmp(a, b, now_index+1);
-    }else if(a[now_index] != b [now_index] || arithm_length(a)!= arithm_length(b)){
-        return false;
+    if(arithm_length(b)>arithm_length(b)){
+        if(a[arithm_length(a)-1] - b[arithm_length(a)-1]!=0)return (a[arithm_length(a)-1] - b[arithm_length(a)-1])/abs(a[arithm_length(a)-1] - b[arithm_length(a)-1]);
+        return a[arithm_length(a)-1] - b[arithm_length(a)-1];
     }else{
-        return true;
+        if(a[arithm_length(a)-1] - b[arithm_length(a)-1]!=0)return (a[arithm_length(a)-1] - b[arithm_length(a)-1])/abs(a[arithm_length(a)-1] - b[arithm_length(a)-1]);
+        return a[arithm_length(a)-1]-b[arithm_length(a)-1];
     }
-}
-
-bool second_strcmp(char *a, char *b){
-   if(rekursion_strcmp(a, b, 0)){
-     return 0;
-   }else{
-     return false;
-   }
 }
 
 int D(int i, int j){
@@ -364,33 +355,60 @@ int D(int i, int j){
     }
 }
 
-bool third_strcmp(char *a, char *b){
+int third_strcmp(char *a, char *b){
     int d_res = 0;
     for(int i=0;i<arithm_length(a);i++){
         for(int j=0;j<arithm_length(b);j++){
             d_res += D(i,j);
         }
     }
+
     if(arithm_length(a)-d_res<=1){
-        for(int i=0;i<arithm_length(a); i++){
-            if(a[i]!=b[i]|| a[arithm_length(a)-i-1]!=b[arithm_length(a)-i-1]){
-                return false;
+        for(int i=0;i<=arithm_length(a)-1; i++){
+            if(a[i] != b[i]) {
+                if(a[i] - b[i]!=0)return (a[i] - b[i])/abs(a[i] - b[i]);
+                return a[i] - b[i];
             }
         }
-	return 0;
+        if(a[arithm_length(a)-1] - b[arithm_length(a)-1]!=0)return (a[arithm_length(a)-1] - b[arithm_length(a)-1])/abs(a[arithm_length(a)-1] - b[arithm_length(a)-1]);
+        return a[arithm_length(a)]-b[arithm_length(a)];
     }
-    return false;
+
+    for(int i=0; i<arithm_length(a); i++){
+        if(i==arithm_length(b)-1 && arithm_length(a) <=arithm_length(b)){
+            if(a[i] - b[i]!=0)return (a[i] - b[i])/abs(a[i] - b[i]);
+            return a[i] - b[i];
+        }else{
+            if(a[i] != b[i])return (a[i] - b[i])/abs(a[i] - b[i]);
+        }
+    }
+    if(arithm_length(b)>arithm_length(b)){
+        if(a[arithm_length(a)-1] - b[arithm_length(a)-1]!=0)return (a[arithm_length(a)-1] - b[arithm_length(a)-1])/abs(a[arithm_length(a)-1] - b[arithm_length(a)-1]);
+        return a[arithm_length(a)-1] - b[arithm_length(a)-1];
+    }else{
+        if(a[arithm_length(a)-1] - b[arithm_length(a)-1]!=0)return (a[arithm_length(a)-1] - b[arithm_length(a)-1])/abs(a[arithm_length(a)-1] - b[arithm_length(a)-1]);
+        return a[arithm_length(a)-1]-b[arithm_length(a)-1];
+    }
+
 }
 
-bool fourth_strcmp(char *a, char *b){
-    if(arithm_length(a) != arithm_length(b)){
-         return false;
-    }
-    int l = arithm_length(a);
-    for(int i=0; i<l;i++){
-      if( (*a+i) != (*b+i) ){
-            return false;
+int fourth_strcmp(char *a, char *b){
+    int i=0;
+    while( i<arithm_length(a)){
+        if(i==arithm_length(b)-1 && arithm_length(a) <=arithm_length(b)){
+            if(a[i] - b[i]!=0)return (a[i] - b[i])/abs(a[i] - b[i]);
+            return a[i] - b[i];
+        }else{
+            if(a[i] != b[i])return (a[i] - b[i])/abs(a[i] - b[i]);
         }
+         i++;
+    }
+    if(arithm_length(b)>arithm_length(b)){
+        if(a[arithm_length(a)-1] - b[arithm_length(a)-1]!=0)return (a[arithm_length(a)-1] - b[arithm_length(a)-1])/abs(a[arithm_length(a)-1] - b[arithm_length(a)-1]);
+        return a[arithm_length(a)-1] - b[arithm_length(a)-1];
+    }else{
+        if(a[arithm_length(a)-1] - b[arithm_length(a)-1]!=0)return (a[arithm_length(a)-1] - b[arithm_length(a)-1])/abs(a[arithm_length(a)-1] - b[arithm_length(a)-1]);
+        return a[arithm_length(a)-1]-b[arithm_length(a)-1];
     }
     return 0;
 }
@@ -409,17 +427,17 @@ void fourth_function(){
     cin.getline(str2,10000);
     char *f = &str[0];
     char *s = &str2[0];
-    printf("strcmp1(\" %s \", \" %s \") = %i",f,s, first_strcmp(f, s) );
-    printf("strcmp2(\" %s \", \" %s \") = %i",f,s, second_strcmp(f, s));
-    printf("strcmp3(\" %s \", \" %s \") = %i",f,s, third_strcmp(f, s) );
-    printf("strcmp4(\" %s \", \" %s \") = %i",f,s, fourth_strcmp(f, s));
+    printf("strcmp1(\" %s \", \" %s \") = %i\n",f,s, first_strcmp(f, s) );
+    printf("strcmp2(\" %s \", \" %s \") = %i\n",f,s, second_strcmp(f, s));
+    printf("strcmp3(\" %s \", \" %s \") = %i\n",f,s, third_strcmp(f, s) );
+    printf("strcmp4(\" %s \", \" %s \") = %i\n",f,s, fourth_strcmp(f, s));
 }
 
 void fourth_function(char *f, char *s){
-    printf("strcmp1(\" %s \", \" %s \") = %i",f,s, first_strcmp(f, s) );
-    printf("strcmp2(\" %s \", \" %s \") = %i",f,s, second_strcmp(f, s));
-    printf("strcmp3(\" %s \", \" %s \") = %i",f,s, third_strcmp(f, s) );
-    printf("strcmp4(\" %s \", \" %s \") = %i",f,s, fourth_strcmp(f, s));
+    printf("strcmp1(\" %s \", \" %s \") = %i\n",f,s, first_strcmp(f, s) );
+    printf("strcmp2(\" %s \", \" %s \") = %i\n",f,s, second_strcmp(f, s));
+    printf("strcmp3(\" %s \", \" %s \") = %i\n",f,s, third_strcmp(f, s) );
+    printf("strcmp4(\" %s \", \" %s \") = %i\n",f,s, fourth_strcmp(f, s));
 }
 
 char* first_fstrcat(char *a, char *b){
@@ -478,6 +496,7 @@ char* fourth_fstrcat(char *a, char *b){
     while(i-arithm_length(a)<arithm_length(b)-1){
         n[i]=b[i-arithm_length(a)];i++;
     }
+    char *links = &n[0];
     return links;
 }
 
@@ -517,8 +536,8 @@ char* first_strcpy(char *d, char *s){
 }
 
 char* second_strcpy(char *d, char *s){
-    d = s;
-    return d;
+    s = d;
+    return s;
 }
 
 char* third_strcpy(char *d, char *s){
@@ -731,8 +750,85 @@ void third_test(){
     }
 }
 
+void clear_char_array(char *a){
+  for(int i=0; i<10018; i++){
+    a[i] = 0;
+  }
+}
+
+void write_string_in_char(char *a, string str){
+  clear_char_array(a);
+  for(int i=0; i<str.length(); i++){
+    a[i]=str[i];
+  }
+}
+
+void mind(int index, char *str){
+  switch(index){
+  case 1:{
+    write_string_in_char(str, "it is string");
+    return;
+  }
+  case 2:{
+    write_string_in_char(str, "strinz");
+    return;
+  }
+  case 3:{
+    write_string_in_char(str, "it is big strinz");
+    return;
+  }
+  case 4:{
+    write_string_in_char(str, "it is strinz");
+    return;
+  }
+  case 5:{
+    write_string_in_char(str, "it strinz");
+    return;
+  }
+  case 6:{
+    write_string_in_char(str, "it strin");
+    return;
+  }
+  }
+}
+
+void mind_s(int index, char *str){
+  switch(index){
+  case 1:{
+    write_string_in_char(str, "");
+    return;
+  }
+  case 2:{
+    write_string_in_char(str, "strinaa");
+    return;
+  }
+  case 3:{
+    write_string_in_char(str, "it is big strin");
+    return;
+  }
+  case 4:{
+    write_string_in_char(str, "it is string");
+    return;
+  }
+  case 5:{
+    write_string_in_char(str, "it strzz");
+    return;
+  }
+  case 6:{
+    write_string_in_char(str, "it strinzz");
+    return;
+  }
+  }
+}
+
 void fourth_test(){
     printf("FOURTH FUNCTION DATA\n");
+    char str[10018], str2[10018];
+    for(int i=0; i<6;i++){
+      mind(i, &str[0]);
+      mind_s(i, &str2[0]);
+      fourth_function(&str[0], &str2[0]);
+    }
 
 }
 
@@ -742,27 +838,35 @@ void fivth_test(){
 
 void sixth_test(){
     printf("SIXTH FUNCTION DATA\n");
+    char str[10018], str2[10018];
+    clear_char_array(&str[0]);
+    clear_char_array(&str2[0]);
+    char t = 1-1; char *i = &t;
+    char st[]="this is first string ";char *a = &st[0];
+    sixth_function(i, &str[0]);
+    sixth_function(a, &str2[0]);
+
 }
 
 void read_data(int name){
   switch(name){
   case 1:{
-        //first_test();
+        ///first_test();
     break;}
   case 2:{
-        //second_test();
+        ///second_test();
     break;}
   case 3:{
-    //third_test();
+        //third_test();
     break;}
   case 4:{
-    fourth_test();
+        ///fourth_test();
     break;}
   case 5:{
-    fivth_test();
+        fivth_test();
     break;}
   case 6:{
-    sixth_test();
+        ///sixth_test();
     break;}
   default:
     cout<<"ERROR"<<endl;
@@ -775,8 +879,8 @@ int main()
     ///first_function();///one function with
     ///second_function();
     ///third_function();
-    //fourth_function();
-    //ifth_function();
+    ///fourth_function();
+    //fifth_function();
     //sixth_function();
     int i=1;
     while(i<7){
