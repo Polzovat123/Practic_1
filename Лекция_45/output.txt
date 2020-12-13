@@ -1,0 +1,562 @@
+FIRST FUNCTION DATA STRLEN
+ "this is first string "
+""
+strlen1("this is first string ")=21
+strlen2("this is first string ")=21
+strlen3("this is first string ")=21
+strlen4("this is first string ")=21
+
+strlen1("")=0
+strlen2("")=0
+strlen3("")=0
+strlen4("")=0
+
+SECOND FUNCTION DATA STRPOS
+"" :  ""
+
+strpos1("","") = -1
+strpos2("","") = -1
+strpos3("","") = -1
+strpos4("","") = -1
+
+"" :  "no"
+
+strpos1("","no") = -1
+strpos2("","no") = -1
+strpos3("","no") = -1
+strpos4("","no") = -1
+
+"" :  "this is first string"
+
+strpos1("","this is first string") = -1
+strpos2("","this is first string") = -1
+strpos3("","this is first string") = -1
+strpos4("","this is first string") = -1
+
+"" :  "aa"
+
+strpos1("","aa") = -1
+strpos2("","aa") = -1
+strpos3("","aa") = -1
+strpos4("","aa") = -1
+
+"this is first string" :  ""
+
+strpos1("this is first string","") = -1
+strpos2("this is first string","") = -1
+strpos3("this is first string","") = -1
+strpos4("this is first string","") = -1
+
+"this is first string" :  "no"
+
+strpos1("this is first string","no") = -1
+strpos2("this is first string","no") = -1
+strpos3("this is first string","no") = -1
+strpos4("this is first string","no") = -1
+
+"this is first string" :  "this is first string"
+
+strpos1("this is first string","this is first string") = 0
+strpos2("this is first string","this is first string") = 0
+strpos3("this is first string","this is first string") = 0
+strpos4("this is first string","this is first string") = 0
+
+"this is first string" :  "aa"
+
+strpos1("aais is first string","aa") = 0
+strpos2("aais is first string","aa") = 0
+strpos3("aais is first string","aa") = 0
+strpos4("aais is first string","aa") = 0
+
+strpos1("this is first staang","aa") = 16
+strpos2("this is first staang","aa") = 16
+strpos3("this is first staang","aa") = 16
+strpos4("this is first staang","aa") = 16
+
+strpos1("this is first striaa","aa") = 18
+strpos2("this is first striaa","aa") = 18
+strpos3("this is first striaa","aa") = 18
+strpos4("this is first striaa","aa") = 18
+
+
+
+THIRT FUNCTION DATA
+"" :  "it is long string for delete operation"
+1
+strdel1("  ", 0, 0 ) =
+strdel2("  ", 0, 0 ) =
+strdel3("  ", 0, 0 ) =
+strdel4("  ", 0, 0 ) =
+
+2
+strdel1("  ", 0, 0 ) =
+strdel2("  ", 0, 0 ) =
+strdel3("  ", 0, 0 ) =
+strdel4("  ", 0, 0 ) =
+
+3
+strdel1("  ", 0, 0 ) =
+strdel2("  ", 0, 0 ) =
+strdel3("  ", 0, 0 ) =
+strdel4("  ", 0, 0 ) =
+
+4
+strdel1("  ", 0, 1 ) =
+strdel2("  ", 0, 1 ) =
+strdel3("  ", 0, 1 ) =
+strdel4("  ", 0, 1 ) =
+
+5
+strdel1("  ", 0, 1 ) =
+strdel2("  ", 0, 1 ) =
+strdel3("  ", 0, 1 ) =
+strdel4("  ", 0, 1 ) =
+
+6
+strdel1("  ", 0, 0 ) =
+strdel2("  ", 0, 0 ) =
+strdel3("  ", 0, 0 ) =
+strdel4("  ", 0, 0 ) =
+
+7
+strdel1("  ", 0, 0 ) =
+strdel2("  ", 0, 0 ) =
+strdel3("  ", 0, 0 ) =
+strdel4("  ", 0, 0 ) =
+
+8
+strdel1("  ", 0, 0 ) =
+strdel2("  ", 0, 0 ) =
+strdel3("  ", 0, 0 ) =
+strdel4("  ", 0, 0 ) =
+
+9
+strdel1("  ", 0, -1 ) =
+strdel2("  ", 0, -1 ) =
+strdel3("  ", 0, -1 ) =
+strdel4("  ", 0, -1 ) =
+
+10
+strdel1("  ", 0, 1 ) =
+strdel2("  ", 0, 1 ) =
+strdel3("  ", 0, 1 ) =
+strdel4("  ", 0, 1 ) =
+
+11
+strdel1("  ", 0, -1 ) =
+strdel2("  ", 0, -1 ) =
+strdel3("  ", 0, -1 ) =
+strdel4("  ", 0, -1 ) =
+
+12
+strdel1("  ", 0, 0 ) =
+strdel2("  ", 0, 0 ) =
+strdel3("  ", 0, 0 ) =
+strdel4("  ", 0, 0 ) =
+
+13
+strdel1("  ", 0, 0 ) =
+strdel2("  ", 0, 0 ) =
+strdel3("  ", 0, 0 ) =
+strdel4("  ", 0, 0 ) =
+
+14
+strdel1("  ", 0, 0 ) =
+strdel2("  ", 0, 0 ) =
+strdel3("  ", 0, 0 ) =
+strdel4("  ", 0, 0 ) =
+
+15
+strdel1("  ", 0, 0 ) =
+strdel2("  ", 0, 0 ) =
+strdel3("  ", 0, 0 ) =
+strdel4("  ", 0, 0 ) =
+
+16
+strdel1("  ", 0, 1 ) =
+strdel2("  ", 0, 1 ) =
+strdel3("  ", 0, 1 ) =
+strdel4("  ", 0, 1 ) =
+
+17
+strdel1("  ", 0, 1 ) =
+strdel2("  ", 0, 1 ) =
+strdel3("  ", 0, 1 ) =
+strdel4("  ", 0, 1 ) =
+
+18
+strdel1("  ", 0, 0 ) =
+strdel2("  ", 0, 0 ) =
+strdel3("  ", 0, 0 ) =
+strdel4("  ", 0, 0 ) =
+
+19
+strdel1("  ", 0, 0 ) =
+strdel2("  ", 0, 0 ) =
+strdel3("  ", 0, 0 ) =
+strdel4("  ", 0, 0 ) =
+
+20
+strdel1("  ", 0, 0 ) =
+strdel2("  ", 0, 0 ) =
+strdel3("  ", 0, 0 ) =
+strdel4("  ", 0, 0 ) =
+
+21
+strdel1("  ", 0, -1 ) =
+strdel2("  ", 0, -1 ) =
+strdel3("  ", 0, -1 ) =
+strdel4("  ", 0, -1 ) =
+
+22
+strdel1("  ", 0, 1 ) =
+strdel2("  ", 0, 1 ) =
+strdel3("  ", 0, 1 ) =
+strdel4("  ", 0, 1 ) =
+
+23
+strdel1("  ", 0, 0 ) =
+strdel2("  ", 0, 0 ) =
+strdel3("  ", 0, 0 ) =
+strdel4("  ", 0, 0 ) =
+
+24
+strdel1("  ", 0, -1 ) =
+strdel2("  ", 0, -1 ) =
+strdel3("  ", 0, -1 ) =
+strdel4("  ", 0, -1 ) =
+
+25
+strdel1("  ", 0, 0 ) =
+strdel2("  ", 0, 0 ) =
+strdel3("  ", 0, 0 ) =
+strdel4("  ", 0, 0 ) =
+
+26
+strdel1("  ", 0, 0 ) =
+strdel2("  ", 0, 0 ) =
+strdel3("  ", 0, 0 ) =
+strdel4("  ", 0, 0 ) =
+
+27
+strdel1("  ", 0, -1 ) =
+strdel2("  ", 0, -1 ) =
+strdel3("  ", 0, -1 ) =
+strdel4("  ", 0, -1 ) =
+
+28
+strdel1("  ", 0, 1 ) =
+strdel2("  ", 0, 1 ) =
+strdel3("  ", 0, 1 ) =
+strdel4("  ", 0, 1 ) =
+
+29
+strdel1("  ", 0, 0 ) =
+strdel2("  ", 0, 0 ) =
+strdel3("  ", 0, 0 ) =
+strdel4("  ", 0, 0 ) =
+
+30
+strdel1("  ", 0, -1 ) =
+strdel2("  ", 0, -1 ) =
+strdel3("  ", 0, -1 ) =
+strdel4("  ", 0, -1 ) =
+
+31
+strdel1(" it is long string for delete operation ", 1, 2 ) = iis long string for delete operation
+strdel2(" it is long string for delete operation ", 1, 2 ) = iis long string for delete operation
+strdel3(" it is long string for delete operation ", 1, 2 ) = iis long string for delete operation
+strdel4(" it is long string for delete operation ", 1, 2 ) = iis long string for delete operation
+
+32
+strdel1(" it is long string for delete operation ", 1, 38 ) = i
+strdel2(" it is long string for delete operation ", 1, 38 ) = i
+strdel3(" it is long string for delete operation ", 1, 38 ) = i
+strdel4(" it is long string for delete operation ", 1, 38 ) = i
+
+33
+strdel1(" it is long string for delete operation ", 1, 38 ) = i
+strdel2(" it is long string for delete operation ", 1, 38 ) = i
+strdel3(" it is long string for delete operation ", 1, 38 ) = i
+strdel4(" it is long string for delete operation ", 1, 38 ) = i
+
+34
+strdel1(" it is long string for delete operation ", 1, 2 ) = iis long string for delete operation
+strdel2(" it is long string for delete operation ", 1, 2 ) = iis long string for delete operation
+strdel3(" it is long string for delete operation ", 1, 2 ) = iis long string for delete operation
+strdel4(" it is long string for delete operation ", 1, 2 ) = iis long string for delete operation
+
+35
+strdel1(" it is long string for delete operation ", 1, 37 ) = i
+strdel2(" it is long string for delete operation ", 1, 37 ) = i
+strdel3(" it is long string for delete operation ", 1, 37 ) = i
+strdel4(" it is long string for delete operation ", 1, 37 ) = i
+
+36
+strdel1(" it is long string for delete operation ", 1, 16 ) = i for delete operation
+strdel2(" it is long string for delete operation ", 1, 16 ) = i for delete operation
+strdel3(" it is long string for delete operation ", 1, 16 ) = i for delete operation
+strdel4(" it is long string for delete operation ", 1, 16 ) = i for delete operation
+
+37
+strdel1(" it is long string for delete operation ", 0, 0 ) = t is long string for delete operation
+strdel2(" it is long string for delete operation ", 0, 0 ) = t is long string for delete operation
+strdel3(" it is long string for delete operation ", 0, 0 ) = t is long string for delete operation
+strdel4(" it is long string for delete operation ", 0, 0 ) = t is long string for delete operation
+
+38
+strdel1(" it is long string for delete operation ", 0, 38 ) =
+strdel2(" it is long string for delete operation ", 0, 38 ) =
+strdel3(" it is long string for delete operation ", 0, 38 ) =
+strdel4(" it is long string for delete operation ", 0, 38 ) =
+
+39
+strdel1(" it is long string for delete operation ", 0, 37 ) =
+strdel2(" it is long string for delete operation ", 0, 37 ) =
+strdel3(" it is long string for delete operation ", 0, 37 ) =
+strdel4(" it is long string for delete operation ", 0, 37 ) =
+
+40
+strdel1(" it is long string for delete operation ", 0, 1 ) =  is long string for delete operation
+strdel2(" it is long string for delete operation ", 0, 1 ) =  is long string for delete operation
+strdel3(" it is long string for delete operation ", 0, 1 ) =  is long string for delete operation
+strdel4(" it is long string for delete operation ", 0, 1 ) =  is long string for delete operation
+
+41
+strdel1(" it is long string for delete operation ", 0, 37 ) =
+strdel2(" it is long string for delete operation ", 0, 37 ) =
+strdel3(" it is long string for delete operation ", 0, 37 ) =
+strdel4(" it is long string for delete operation ", 0, 37 ) =
+
+42
+strdel1(" it is long string for delete operation ", 0, 16 ) =  for delete operation
+strdel2(" it is long string for delete operation ", 0, 16 ) =  for delete operation
+strdel3(" it is long string for delete operation ", 0, 16 ) =  for delete operation
+strdel4(" it is long string for delete operation ", 0, 16 ) =  for delete operation
+
+43
+strdel1(" it is long string for delete operation ", 0, 0 ) = t is long string for delete operation
+strdel2(" it is long string for delete operation ", 0, 0 ) = t is long string for delete operation
+strdel3(" it is long string for delete operation ", 0, 0 ) = t is long string for delete operation
+strdel4(" it is long string for delete operation ", 0, 0 ) = t is long string for delete operation
+
+44
+strdel1(" it is long string for delete operation ", 0, 38 ) =
+strdel2(" it is long string for delete operation ", 0, 38 ) =
+strdel3(" it is long string for delete operation ", 0, 38 ) =
+strdel4(" it is long string for delete operation ", 0, 38 ) =
+
+45
+strdel1(" it is long string for delete operation ", 0, 0 ) = t is long string for delete operation
+strdel2(" it is long string for delete operation ", 0, 0 ) = t is long string for delete operation
+strdel3(" it is long string for delete operation ", 0, 0 ) = t is long string for delete operation
+strdel4(" it is long string for delete operation ", 0, 0 ) = t is long string for delete operation
+
+46
+strdel1(" it is long string for delete operation ", 0, 1 ) =  is long string for delete operation
+strdel2(" it is long string for delete operation ", 0, 1 ) =  is long string for delete operation
+strdel3(" it is long string for delete operation ", 0, 1 ) =  is long string for delete operation
+strdel4(" it is long string for delete operation ", 0, 1 ) =  is long string for delete operation
+
+47
+strdel1(" it is long string for delete operation ", 0, 1 ) =  is long string for delete operation
+strdel2(" it is long string for delete operation ", 0, 1 ) =  is long string for delete operation
+strdel3(" it is long string for delete operation ", 0, 1 ) =  is long string for delete operation
+strdel4(" it is long string for delete operation ", 0, 1 ) =  is long string for delete operation
+
+48
+strdel1(" it is long string for delete operation ", 0, 0 ) = t is long string for delete operation
+strdel2(" it is long string for delete operation ", 0, 0 ) = t is long string for delete operation
+strdel3(" it is long string for delete operation ", 0, 0 ) = t is long string for delete operation
+strdel4(" it is long string for delete operation ", 0, 0 ) = t is long string for delete operation
+
+49
+strdel1(" it is long string for delete operation ", 38, 39 ) = it is long string for delete operation
+strdel2(" it is long string for delete operation ", 38, 39 ) = it is long string for delete operation
+strdel3(" it is long string for delete operation ", 38, 39 ) = it is long string for delete operation
+strdel4(" it is long string for delete operation ", 38, 39 ) = it is long string for delete operation
+
+50
+strdel1(" it is long string for delete operation ", 38, 38 ) = it is long string for delete operation
+strdel2(" it is long string for delete operation ", 38, 38 ) = it is long string for delete operation
+strdel3(" it is long string for delete operation ", 38, 38 ) = it is long string for delete operation
+strdel4(" it is long string for delete operation ", 38, 38 ) = it is long string for delete operation
+
+51
+strdel1(" it is long string for delete operation ", 38, 39 ) = it is long string for delete operation
+strdel2(" it is long string for delete operation ", 38, 39 ) = it is long string for delete operation
+strdel3(" it is long string for delete operation ", 38, 39 ) = it is long string for delete operation
+strdel4(" it is long string for delete operation ", 38, 39 ) = it is long string for delete operation
+
+52
+strdel1(" it is long string for delete operation ", 38, 39 ) = it is long string for delete operation
+strdel2(" it is long string for delete operation ", 38, 39 ) = it is long string for delete operation
+strdel3(" it is long string for delete operation ", 38, 39 ) = it is long string for delete operation
+strdel4(" it is long string for delete operation ", 38, 39 ) = it is long string for delete operation
+
+53
+strdel1(" it is long string for delete operation ", 38, 39 ) = it is long string for delete operation
+strdel2(" it is long string for delete operation ", 38, 39 ) = it is long string for delete operation
+strdel3(" it is long string for delete operation ", 38, 39 ) = it is long string for delete operation
+strdel4(" it is long string for delete operation ", 38, 39 ) = it is long string for delete operation
+
+54
+strdel1(" it is long string for delete operation ", 38, 39 ) = it is long string for delete operation
+strdel2(" it is long string for delete operation ", 38, 39 ) = it is long string for delete operation
+strdel3(" it is long string for delete operation ", 38, 39 ) = it is long string for delete operation
+strdel4(" it is long string for delete operation ", 38, 39 ) = it is long string for delete operation
+
+55
+strdel1(" it is long string for delete operation ", 0, 0 ) = t is long string for delete operation
+strdel2(" it is long string for delete operation ", 0, 0 ) = t is long string for delete operation
+strdel3(" it is long string for delete operation ", 0, 0 ) = t is long string for delete operation
+strdel4(" it is long string for delete operation ", 0, 0 ) = t is long string for delete operation
+
+56
+strdel1(" it is long string for delete operation ", 0, 38 ) =
+strdel2(" it is long string for delete operation ", 0, 38 ) =
+strdel3(" it is long string for delete operation ", 0, 38 ) =
+strdel4(" it is long string for delete operation ", 0, 38 ) =
+
+57
+strdel1(" it is long string for delete operation ", 0, 37 ) =
+strdel2(" it is long string for delete operation ", 0, 37 ) =
+strdel3(" it is long string for delete operation ", 0, 37 ) =
+strdel4(" it is long string for delete operation ", 0, 37 ) =
+
+58
+strdel1(" it is long string for delete operation ", 0, 1 ) =  is long string for delete operation
+strdel2(" it is long string for delete operation ", 0, 1 ) =  is long string for delete operation
+strdel3(" it is long string for delete operation ", 0, 1 ) =  is long string for delete operation
+strdel4(" it is long string for delete operation ", 0, 1 ) =  is long string for delete operation
+
+59
+strdel1(" it is long string for delete operation ", 0, 38 ) =
+strdel2(" it is long string for delete operation ", 0, 38 ) =
+strdel3(" it is long string for delete operation ", 0, 38 ) =
+strdel4(" it is long string for delete operation ", 0, 38 ) =
+
+60
+strdel1(" it is long string for delete operation ", 0, 1 ) =  is long string for delete operation
+strdel2(" it is long string for delete operation ", 0, 1 ) =  is long string for delete operation
+strdel3(" it is long string for delete operation ", 0, 1 ) =  is long string for delete operation
+strdel4(" it is long string for delete operation ", 0, 1 ) =  is long string for delete operation
+
+
+FOURTH FUNCTION DATA
+strcmp1("  ", "  ") = 0
+strcmp2("  ", "  ") = 0
+strcmp3("  ", "  ") = 0
+strcmp4("  ", "  ") = 0
+strcmp1(" it is string ", "  ") = 1
+strcmp2(" it is string ", "  ") = 1
+strcmp3(" it is string ", "  ") = 1
+strcmp4(" it is string ", "  ") = 1
+strcmp1(" strinz ", " strinaa ") = 1
+strcmp2(" strinz ", " strinaa ") = 1
+strcmp3(" strinz ", " strinaa ") = 1
+strcmp4(" strinz ", " strinaa ") = 1
+strcmp1(" it is big strinz ", " it is big strin ") = 1
+strcmp2(" it is big strinz ", " it is big strin ") = 1
+strcmp3(" it is big strinz ", " it is big strin ") = 1
+strcmp4(" it is big strinz ", " it is big strin ") = 1
+strcmp1(" it is strinz ", " it is string ") = 1
+strcmp2(" it is strinz ", " it is string ") = 1
+strcmp3(" it is strinz ", " it is string ") = 1
+strcmp4(" it is strinz ", " it is string ") = 1
+strcmp1(" it strinz ", " it strzz ") = -1
+strcmp2(" it strinz ", " it strzz ") = -1
+strcmp3(" it strinz ", " it strzz ") = -1
+strcmp4(" it strinz ", " it strzz ") = -1
+
+FIVETH FUNCTION DATA
+strins1("  ", "  ", 1) =
+strins2("  ", "  ", 1) =
+strins3("  ", "  ", 1) =
+strins4("  ", "  ", 1) =
+strins1("  ", "  ", -100) =
+strins2("  ", "  ", -100) =
+strins3("  ", "  ", -100) =
+strins4("  ", "  ", -100) =
+strins1("  ", "  ", 100) =
+strins2("  ", "  ", 100) =
+strins3("  ", "  ", 100) =
+strins4("  ", "  ", 100) =
+strins1("  ", "  ", 0) =
+strins2("  ", "  ", 0) =
+strins3("  ", "  ", 0) =
+strins4("  ", "  ", 0) =
+strins1("  ", "  ", 0) =
+strins2("  ", "  ", 0) =
+strins3("  ", "  ", 0) =
+strins4("  ", "  ", 0) =
+strins1("  ", "  ", 1) =
+strins2("  ", "  ", 1) =
+strins3("  ", "  ", 1) =
+strins4("  ", "  ", 1) =
+strins1("  ", "  ", -100) =
+strins2("  ", "  ", -100) =
+strins3("  ", "  ", -100) =
+strins4("  ", "  ", -100) =
+strins1("  ", "  ", 100) =
+strins2("  ", "  ", 100) =
+strins3("  ", "  ", 100) =
+strins4("  ", "  ", 100) =
+strins1("  ", "  ", 0) =
+strins2("  ", "  ", 0) =
+strins3("  ", "  ", 0) =
+strins4("  ", "  ", 0) =
+strins1("  ", "  ", 0) =
+strins2("  ", "  ", 0) =
+strins3("  ", "  ", 0) =
+strins4("  ", "  ", 0) =
+strins1(" this is first string  ", " this is first string  ", 1) = tthis is first string his is first string
+strins2(" this is first string  ", " this is first string  ", 1) = tthis is first string his is first string
+strins3(" this is first string  ", " this is first string  ", 1) = tthis is first string his is first string
+strins4(" this is first string  ", " this is first string  ", 1) = tthis is first string his is first string
+strins1(" this is first string  ", " this is first string  ", -100) =
+strins2(" this is first string  ", " this is first string  ", -100) =
+strins3(" this is first string  ", " this is first string  ", -100) =
+strins4(" this is first string  ", " this is first string  ", -100) =
+strins1(" this is first string  ", " this is first string  ", 100) = this is first string
+strins2(" this is first string  ", " this is first string  ", 100) = this is first string
+strins3(" this is first string  ", " this is first string  ", 100) = this is first string
+strins4(" this is first string  ", " this is first string  ", 100) = this is first string
+strins1(" this is first string  ", " this is first string  ", 0) = this is first string this is first string
+strins2(" this is first string  ", " this is first string  ", 0) = this is first string this is first string
+strins3(" this is first string  ", " this is first string  ", 0) = this is first string this is first string
+strins4(" this is first string  ", " this is first string  ", 0) = this is first string this is first string
+strins1(" this is first string  ", " this is first string  ", 21) = this is first string this is first string
+strins2(" this is first string  ", " this is first string  ", 21) = this is first string this is first string
+strins3(" this is first string  ", " this is first string  ", 21) = this is first string this is first string
+strins4(" this is first string  ", " this is first string  ", 21) = this is first string this is first string
+strins1(" this is first string  ", " this is first string  ", 1) = tthis is first string his is first string
+strins2(" this is first string  ", " this is first string  ", 1) = tthis is first string his is first string
+strins3(" this is first string  ", " this is first string  ", 1) = tthis is first string his is first string
+strins4(" this is first string  ", " this is first string  ", 1) = tthis is first string his is first string
+strins1(" this is first string  ", " this is first string  ", -100) =
+strins2(" this is first string  ", " this is first string  ", -100) =
+strins3(" this is first string  ", " this is first string  ", -100) =
+strins4(" this is first string  ", " this is first string  ", -100) =
+strins1(" this is first string  ", " this is first string  ", 100) = this is first string
+strins2(" this is first string  ", " this is first string  ", 100) = this is first string
+strins3(" this is first string  ", " this is first string  ", 100) = this is first string
+strins4(" this is first string  ", " this is first string  ", 100) = this is first string
+strins1(" this is first string  ", " this is first string  ", 0) = this is first string this is first string
+strins2(" this is first string  ", " this is first string  ", 0) = this is first string this is first string
+strins3(" this is first string  ", " this is first string  ", 0) = this is first string this is first string
+strins4(" this is first string  ", " this is first string  ", 0) = this is first string this is first string
+strins1(" this is first string  ", " this is first string  ", 21) = this is first string this is first string
+strins2(" this is first string  ", " this is first string  ", 21) = this is first string this is first string
+strins3(" this is first string  ", " this is first string  ", 21) = this is first string this is first string
+strins4(" this is first string  ", " this is first string  ", 21) = this is first string this is first string
+
+SIXTH FUNCTION DATA
+strcpy1("  ") =
+strcpy2("  ") =
+strcpy3("  ") =
+strcpy4("  ") =
+strcpy1(" this is first string  ") = this is first string
+strcpy2(" this is first string  ") = this is first string
+strcpy3(" this is first string  ") = this is first string
+strcpy4(" this is first string  ") = this is first string
