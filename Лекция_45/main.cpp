@@ -520,12 +520,93 @@ void fifth_function(){
     printf("fstrcat4(\" %s \", \" %s \") = %s \n", f, s, fourth_fstrcat(f, s));
 }
 
-void fifth_function(char *f, char *s){
-    printf("fstrcat1(\" %s \", \" %s \") = %s \n", f, s, first_fstrcat(f, s));
-    printf("fstrcat2(\" %s \", \" %s \") = %s \n", f, s, second_fstrcat(f, s));
-    printf("fstrcat3(\" %s \", \" %s \") = %s \n", f, s, third_fstrcat(f, s));
-    printf("fstrcat4(\" %s \", \" %s \") = %s \n", f, s, fourth_fstrcat(f, s));
+void clear_char_array(char *a){
+  for(int i=0; i<10018; i++){
+    a[i] = 0;
+  }
 }
+
+char new_f[10018];
+
+char* first_strins(char *str, char *src, int k){
+    clear_char_array(&new_f[0]);
+    if(k<0)return &new_f[0];
+    for(int i=0; i<k; i++){
+        new_f[i] = str[i];
+    }
+    for(int i=0; i<arithm_length(src); i++){
+        new_f[i+k] = src[i];
+    }
+    for(int i=k; i<arithm_length(str); i++){
+        new_f[i+arithm_length(src)] = str[i];
+    }
+    return &new_f[0];
+}
+
+char* second_strins(char *str, char *src, int k){
+    if(k<0)return &new_f[0];
+    for(int i=0; i<k + arithm_length(src) + arithm_length(str); i++){
+        if(i<k){
+            new_f[i] = str[i];
+        }else{
+            if(i>=k&&i-k<arithm_length(src)){
+                new_f[i] = src[i-k];
+            }else{
+                new_f[i] = str[i-arithm_length(src)];
+            }
+        }
+    }
+    return &new_f[0];
+}
+
+void rekursion_strins(char *str, char *src, int k, int i){
+    if( i<k ){
+        new_f[i] = str[i];
+        return rekursion_strins(str, src, k, i+1);
+    }else if(i>=k&&i-k<arithm_length(src)){
+        new_f[i] = src[i-k];
+        return rekursion_strins(str, src, k, i+1);
+    }else{
+        if(i<k + arithm_length(src) + arithm_length(str)){
+            new_f[i] = str[i-arithm_length(src)];
+            return rekursion_strins(str, src, k, i+1);
+        }else
+        return;
+    }
+}
+
+char* third_strins(char *str, char *src, int k){
+    if(k<0)return &new_f[0];
+    rekursion_strins(str, src, k, 0);
+    return &new_f[0];
+}
+
+char* fourth_strins(char *str, char *src, int k){
+    if(k<0)return &new_f[0];
+    vector <char> strange;
+    for(int i=0; i<k; i++){
+        strange.push_back(str[i]);
+    }
+    for(int i=0; i<arithm_length(src); i++){
+        strange.push_back(src[i]);
+    }
+    for(int i=k; i<arithm_length(str); i++){
+        strange.push_back(str[i]);
+    }
+    for(int i=0;i<strange.size(); i++){
+        new_f[i] = strange[i];
+    }
+    return &new_f[0];
+}
+
+
+void fifth_function(char *f, char *s, int k){
+    printf("strins1(\" %s \", \" %s \", %i) = %s \n", f, s, k, first_strins(f, s, k));
+    printf("strins2(\" %s \", \" %s \", %i) = %s \n", f, s, k, second_strins(f, s, k));
+    printf("strins3(\" %s \", \" %s \", %i) = %s \n", f, s, k, third_strins(f, s, k));
+    printf("strins4(\" %s \", \" %s \", %i) = %s \n", f, s, k, fourth_strins(f, s, k));
+}
+
 
 
 char* first_strcpy(char *d, char *s){
@@ -724,7 +805,7 @@ int mind_p(int i, char *a , int k){
         return arithm_length(a) - k;
     }
     case 5:{
-        if(arithm_length(a)!=0)
+        if(arithm_length(a)-k!=0)
         return rand()%(arithm_length(a) - k);
         return 1;
     }
@@ -737,24 +818,23 @@ void third_test(){
     char e[]="it is long string for delete operation";char *l = &e[0];
     printf("\"%s\" :  \"%s\"\n", a, l);
     char *u;
+    int now=1;
     for(int i=0;i<2;i++){
         if(i==1)u = l;else u = a;
         for(int j=0; j<5; j++){
             int k = mind_k(j, u);
             for(int y=0;y<6;y++){
                 int p = mind_p(y, u, k);
+                cout<<now<<endl;
                 third_function(u, k, p);
                 printf("\n");
+                now++;
             }
         }
     }
 }
 
-void clear_char_array(char *a){
-  for(int i=0; i<10018; i++){
-    a[i] = 0;
-  }
-}
+
 
 void write_string_in_char(char *a, string str){
   clear_char_array(a);
@@ -832,8 +912,43 @@ void fourth_test(){
 
 }
 
+int mind_k_strins(int index, char*g){
+  switch(index){
+  case 1:{
+    return 1;
+  }
+  case 2:{
+    return -100;
+  }
+  case 3:{
+    return 100;
+  }
+  case 4:{
+    return 0;
+  }
+  case 5:{
+    return arithm_length(g);
+  }
+}
+}
+
+
 void fivth_test(){
     printf("FIVETH FUNCTION DATA\n");
+    char t = 0; char *pp = &t;
+    char st[]="this is first string ";char *a = &st[0];
+    for(int i=0; i<2; i++ ){
+        char *first;
+        if(i==0) first=pp;else first = a;
+        for(int j=0;j<2;j++){
+            char *second;
+            if(i==0) second=pp;else second = a;
+            for(int l=1; l<=5;l++){
+                int k = mind_k_strins(l, second);
+                fifth_function(first, second, k);
+            }
+        }
+    }
 }
 
 void sixth_test(){
@@ -851,22 +966,22 @@ void sixth_test(){
 void read_data(int name){
   switch(name){
   case 1:{
-        ///first_test();
+        first_test();
     break;}
   case 2:{
-        ///second_test();
+        second_test();
     break;}
   case 3:{
-        //third_test();
+        third_test();
     break;}
   case 4:{
-        ///fourth_test();
+        fourth_test();
     break;}
   case 5:{
         fivth_test();
     break;}
   case 6:{
-        ///sixth_test();
+        sixth_test();
     break;}
   default:
     cout<<"ERROR"<<endl;
@@ -878,13 +993,14 @@ int main()
     //setlocale(LC_ALL, "Russian");
     ///first_function();///one function with
     ///second_function();
-    ///third_function();
+    //third_function();
     ///fourth_function();
     //fifth_function();
-    //sixth_function();
+    ///sixth_function();
     int i=1;
     while(i<7){
         read_data(i);
+        printf("\n");
         i++;
     }
     return 0;
