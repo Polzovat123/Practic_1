@@ -211,8 +211,18 @@ void second_function(char* f, char *s){
     printf("strpos4(\"%s\",\"%s\") = %d\n", f, s, fourth_strpos(f,s));
 }
 
+void clear_char_array(char *a){
+  for(int i=0; i<10018; i++){
+    a[i] = 0;
+  }
+}
+
+
 char* first_strdel(char *a, int start, int finish, char *new_file){
     int index=0;
+    int finisht = finish - start;
+    if(finisht<0||start<0)return &new_file[0];
+    finish--;
     for(int i=0; i<arithm_length(a); i++){
         if(i<start || i>finish){
             new_file[index] = a[i];
@@ -224,7 +234,10 @@ char* first_strdel(char *a, int start, int finish, char *new_file){
 
 char* second_strdel(char *a, int start, int finish, char *new_file){
     char nn[10018];
+    int finisht = finish - start;
+    if(finisht<0||start<0)return &new_file[0];
     int index=0;
+    finish--;
     for(int i=0;i<10018;i++){
         nn[i]=0;
     }
@@ -247,6 +260,10 @@ char* second_strdel(char *a, int start, int finish, char *new_file){
 
 char* third_strdel(char *a, int start, int finish, char *t){
     vector <char> new_file;
+    clear_char_array(t);
+    int finisht = finish - start;
+    if(finisht<0||start<0)return t;
+    finish--;
 
     int index=0;
     for(int i=0; i<start; i++){
@@ -271,6 +288,10 @@ void rekursion(int now, char *old, char *n, int start, int finish, int i){
 }
 
 char* fourth_strdel(char *a, int start, int finish, char *new_file){
+    clear_char_array(new_file);
+    int finisht = finish - start;
+    if(finisht<0||start<0)return &new_file[0];
+    finish--;
     rekursion(0, a, new_file, start, finish, 0);
     return &new_file[0];
 }
@@ -294,27 +315,23 @@ void third_function(){
     }
     char *f = &str[0], *l = &new_file[0];
     //cout<<"hmhmhm"<<start<<" "<<finish<<endl;
-    printf("strdel1(\" %s \", %i, %i ) = %s\n", f, start, finish, first_strdel(f, start, finish, l));
-    printf("strdel2(\" %s \", %i, %i ) = %s\n", f, start, finish, second_strdel(f, start, finish, l));
-    printf("strdel3(\" %s \", %i, %i ) = %s\n", f, start, finish, third_strdel(f, start, finish, l));
-    printf("strdel4(\" %s \", %i, %i ) = %s\n", f, start, finish, fourth_strdel(f, start, finish, l));
+    printf("strdel1(\"%s\", %i, %i ) = \"%s\"\n", f, start, finish, first_strdel(f, start, finish, l));
+    printf("strdel2(\"%s\", %i, %i ) = \"%s\"\n", f, start, finish, second_strdel(f, start, finish, l));
+    printf("strdel3(\"%s\", %i, %i ) = \"%s\"\n", f, start, finish, third_strdel(f, start, finish, l));
+    printf("strdel4(\"%s\", %i, %i ) = \"%s\"\n", f, start, finish, fourth_strdel(f, start, finish, l));
 }
 
-void third_function(char *f, int start, int finish){
+void third_function(char *f, int startt, int finisht){
     char new_file [10018];char *l = &new_file[0];
     for(int i=0;i<10018; i++){
         new_file[i] = 0;
     }
-    if(start < 0 || start> arithm_length(f))start = 0;
-    if(finish > arithm_length(f))
-        finish = arithm_length(f)+-1;
-    else{
-        if(finish < start) finish = start+1;
-    }
-    printf("strdel1(\" %s \", %i, %i ) = %s\n", f, start, finish, first_strdel(f, start, finish, l));
-    printf("strdel2(\" %s \", %i, %i ) = %s\n", f, start, finish, second_strdel(f, start, finish, l));
-    printf("strdel3(\" %s \", %i, %i ) = %s\n", f, start, finish, third_strdel(f, start, finish, l));
-    printf("strdel4(\" %s \", %i, %i ) = %s\n", f, start, finish, fourth_strdel(f, start, finish, l));
+    int start = startt, finish = finisht;
+    int finishd = startt + finisht;
+    printf("strdel1(\"%s\", %i, %i ) = \"%s\"\n", f, startt, finisht, first_strdel(f, start, finishd, l));
+    printf("strdel2(\"%s\", %i, %i ) = \"%s\"\n", f, startt, finisht, second_strdel(f, start, finishd, l));
+    printf("strdel3(\"%s\", %i, %i ) = \"%s\"\n", f, startt, finisht, third_strdel(f, start, finishd, l));
+    printf("strdel4(\"%s\", %i, %i ) = \"%s\"\n", f, startt, finisht, fourth_strdel(f, start, finishd, l));
 }
 
 int first_strcmp(char *a, char *b){
@@ -427,17 +444,17 @@ void fourth_function(){
     cin.getline(str2,10000);
     char *f = &str[0];
     char *s = &str2[0];
-    printf("strcmp1(\" %s \", \" %s \") = %i\n",f,s, first_strcmp(f, s) );
-    printf("strcmp2(\" %s \", \" %s \") = %i\n",f,s, second_strcmp(f, s));
-    printf("strcmp3(\" %s \", \" %s \") = %i\n",f,s, third_strcmp(f, s) );
-    printf("strcmp4(\" %s \", \" %s \") = %i\n",f,s, fourth_strcmp(f, s));
+    printf("strcmp1(\"%s\", \"%s\") = %i\n",f,s, first_strcmp(f, s) );
+    printf("strcmp2(\"%s\", \"%s\") = %i\n",f,s, second_strcmp(f, s));
+    printf("strcmp3(\"%s\", \"%s\") = %i\n",f,s, third_strcmp(f, s) );
+    printf("strcmp4(\"%s\", \"%s\") = %i\n",f,s, fourth_strcmp(f, s));
 }
 
 void fourth_function(char *f, char *s){
-    printf("strcmp1(\" %s \", \" %s \") = %i\n",f,s, first_strcmp(f, s) );
-    printf("strcmp2(\" %s \", \" %s \") = %i\n",f,s, second_strcmp(f, s));
-    printf("strcmp3(\" %s \", \" %s \") = %i\n",f,s, third_strcmp(f, s) );
-    printf("strcmp4(\" %s \", \" %s \") = %i\n",f,s, fourth_strcmp(f, s));
+    printf("strcmp1(\"%s\", \"%s\") = %i\n",f,s, first_strcmp(f, s) );
+    printf("strcmp2(\"%s\", \"%s\") = %i\n",f,s, second_strcmp(f, s));
+    printf("strcmp3(\"%s\", \"%s\") = %i\n",f,s, third_strcmp(f, s) );
+    printf("strcmp4(\"%s\", \"%s\") = %i\n",f,s, fourth_strcmp(f, s));
 }
 
 char* first_fstrcat(char *a, char *b){
@@ -500,7 +517,7 @@ char* fourth_fstrcat(char *a, char *b){
     return links;
 }
 
-void fifth_function(){
+/*void fifth_function(){
     char str[10018];
     char str2[10018];
     int start, finish;
@@ -514,23 +531,18 @@ void fifth_function(){
     cin.getline(str2,10000);
     char *f = &str[0];
     char *s = &str2[0];
-    printf("fstrcat1(\" %s \", \" %s \") = %s \n", f, s, first_fstrcat(f, s));
-    printf("fstrcat2(\" %s \", \" %s \") = %s \n", f, s, second_fstrcat(f, s));
-    printf("fstrcat3(\" %s \", \" %s \") = %s \n", f, s, third_fstrcat(f, s));
-    printf("fstrcat4(\" %s \", \" %s \") = %s \n", f, s, fourth_fstrcat(f, s));
+    printf("fstrcat1(\" %s \", \" %s \") = \"%s\" \n", f, s, first_fstrcat(f, s));
+    printf("fstrcat2(\" %s \", \" %s \") = \"%s\" \n", f, s, second_fstrcat(f, s));
+    printf("fstrcat3(\" %s \", \" %s \") = \"%s\" \n", f, s, third_fstrcat(f, s));
+    printf("fstrcat4(\" %s \", \" %s \") = \"%s\" \n", f, s, fourth_fstrcat(f, s));
 }
-
-void clear_char_array(char *a){
-  for(int i=0; i<10018; i++){
-    a[i] = 0;
-  }
-}
+*/
 
 char new_f[10018];
 
 char* first_strins(char *str, char *src, int k){
     clear_char_array(&new_f[0]);
-    if(k<0)return &new_f[0];
+    if(k<0)return str;
     for(int i=0; i<k; i++){
         new_f[i] = str[i];
     }
@@ -544,7 +556,7 @@ char* first_strins(char *str, char *src, int k){
 }
 
 char* second_strins(char *str, char *src, int k){
-    if(k<0)return &new_f[0];
+    if(k<0)return str;
     for(int i=0; i<k + arithm_length(src) + arithm_length(str); i++){
         if(i<k){
             new_f[i] = str[i];
@@ -576,13 +588,13 @@ void rekursion_strins(char *str, char *src, int k, int i){
 }
 
 char* third_strins(char *str, char *src, int k){
-    if(k<0)return &new_f[0];
+    if(k<0)return str;
     rekursion_strins(str, src, k, 0);
     return &new_f[0];
 }
 
 char* fourth_strins(char *str, char *src, int k){
-    if(k<0)return &new_f[0];
+    if(k<0)return str;
     vector <char> strange;
     for(int i=0; i<k; i++){
         strange.push_back(str[i]);
@@ -601,10 +613,10 @@ char* fourth_strins(char *str, char *src, int k){
 
 
 void fifth_function(char *f, char *s, int k){
-    printf("strins1(\" %s \", \" %s \", %i) = %s \n", f, s, k, first_strins(f, s, k));
-    printf("strins2(\" %s \", \" %s \", %i) = %s \n", f, s, k, second_strins(f, s, k));
-    printf("strins3(\" %s \", \" %s \", %i) = %s \n", f, s, k, third_strins(f, s, k));
-    printf("strins4(\" %s \", \" %s \", %i) = %s \n", f, s, k, fourth_strins(f, s, k));
+    printf("strins1(\"%s\", \"%s\", %i) = \"%s\" \n", f, s, k, first_strins(f, s, k));
+    printf("strins2(\"%s\", \"%s\", %i) = \"%s\" \n", f, s, k, second_strins(f, s, k));
+    printf("strins3(\"%s\", \"%s\", %i) = \"%s\" \n", f, s, k, third_strins(f, s, k));
+    printf("strins4(\"%s\", \"%s\", %i) = \"%s\" \n", f, s, k, fourth_strins(f, s, k));
 }
 
 
@@ -654,17 +666,17 @@ void sixth_function(){
     cin.getline(str,10000);
     char *f = &str[0];
     char *s = &str2[0];
-    printf("strcpy1(\" %s \") = %s \n", s, first_strcpy(s, f));
-    printf("strcpy2(\" %s \") = %s \n", s, second_strcpy(s, f));
-    printf("strcpy3(\" %s \") = %s \n", s, third_strcpy(s, f));
-    printf("strcpy4(\" %s \") = %s \n", s, fourth_strcpy(s, f));
+    printf("strcpy1(\"%s \") = \"%s\"\n", s, first_strcpy(s, f));
+    printf("strcpy2(\"%s \") = \"%s\"\n", s, second_strcpy(s, f));
+    printf("strcpy3(\"%s \") = \"%s\"\n", s, third_strcpy(s, f));
+    printf("strcpy4(\"%s \") = \"%s\"\n", s, fourth_strcpy(s, f));
 }
 
 void sixth_function(char *s, char *f){
-    printf("strcpy1(\" %s \") = %s \n", s, first_strcpy(s, f));
-    printf("strcpy2(\" %s \") = %s \n", s, second_strcpy(s, f));
-    printf("strcpy3(\" %s \") = %s \n", s, third_strcpy(s, f));
-    printf("strcpy4(\" %s \") = %s \n", s, fourth_strcpy(s, f));
+    printf("strcpy1(\"%s\") = \"%s\"\n", s, first_strcpy(s, f));
+    printf("strcpy2(\"%s\") = \"%s\"\n", s, second_strcpy(s, f));
+    printf("strcpy3(\"%s\") = \"%s\"\n", s, third_strcpy(s, f));
+    printf("strcpy4(\"%s\") = \"%s\"\n", s, fourth_strcpy(s, f));
 }
 
 char m[10018];
@@ -709,7 +721,7 @@ char* mind(int i){
         return get_link("this is first string");
     }
     case 3:{
-        return get_link("aa");
+        return get_link("i");
     }
     }
 }
@@ -768,14 +780,14 @@ int mind_k(int i, char *a){
     srand(time(0));
     switch(i){
     case 0:{
-        if(arithm_length(a)!=0)return rand() % arithm_length(a);
+        if(arithm_length(a)!=0)return rand() % arithm_length(a)+4;
         return 1;
     }
     case 1:{
         return (-1)*rand()%10;
     }
     case 2:{
-        return arithm_length(a) + rand()%4;
+        return arithm_length(a) + rand()%4+1;
     }
     case 3:{
         return arithm_length(a);
@@ -807,7 +819,7 @@ int mind_p(int i, char *a , int k){
     case 5:{
         if(arithm_length(a)-k!=0)
         return rand()%(arithm_length(a) - k);
-        return 1;
+        return 4;
     }
     }
 }
@@ -908,6 +920,7 @@ void fourth_test(){
       mind(i, &str[0]);
       mind_s(i, &str2[0]);
       fourth_function(&str[0], &str2[0]);
+      printf("\n");
     }
 
 }
@@ -946,6 +959,7 @@ void fivth_test(){
             for(int l=1; l<=5;l++){
                 int k = mind_k_strins(l, second);
                 fifth_function(first, second, k);
+                printf("\n");
             }
         }
     }
@@ -959,6 +973,7 @@ void sixth_test(){
     char t = 1-1; char *i = &t;
     char st[]="this is first string ";char *a = &st[0];
     sixth_function(i, &str[0]);
+    printf("\n");
     sixth_function(a, &str2[0]);
 
 }
@@ -993,9 +1008,9 @@ int main()
     //setlocale(LC_ALL, "Russian");
     ///first_function();///one function with
     ///second_function();
-    //third_function();
+    ///third_function();
     ///fourth_function();
-    //fifth_function();
+    ///fifth_function();
     ///sixth_function();
     int i=1;
     while(i<7){
