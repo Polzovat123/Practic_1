@@ -1,107 +1,90 @@
 #include <iostream>
+#include <vector>
+#include <fstream>
+#include <ctime>
+#include <stdio.h>
 
 using namespace std;
 
-bool zn=false;
-bool last;
+class Matrix
+{
+  public:
+  vector < vector<double>> base;
+  double *determenant;
+    int num_col, num_str;
+  Matrix(int x, int y)
+  {
+    num_col = x;
+    num_str = y;
+  };
 
-void write_byte( char number, bool position ){
-    for (int i=0;i<8;i++){
-        if (( number >> i ) & 1 != 0 || (position == true && zn == true && i==7) )
-            printf("%d", 1);
-        else
-            printf("%d", 0);
+    void read_matrix_random()
+    {
+    double a[100][100];
+    srand(time(0));
+    for(int i=0; i<num_col; i++){
+        vector <double> str;
+        for(int j=0; j<num_str; j++){
+            str.push_back(double(rand()/100)/100);
+        }
+        base.push_back(str);
     }
-}
+  }
 
-void write_r_byte( char number, bool position ){
-    for (int i=0;i<8;i++){
-        if(position == true && zn == true && i==7) {printf("1"); return;}
-        if (( number >> i ) & 1 != 0  )
-            printf("%d", 0);
-        else
-            printf("%d", 1);
-    }
-}
-
-void write_a_byte(char number, bool position){
-    for (int i=0;i<8;i++){
-        if(last){
-            if (( number >> i ) & 1 != 0 || (position == true && zn == true && i==7) ){
-                printf("%d", 1);
-                last = false;
-            }else
-                printf("%d", 0);
-        }else{
-                if(position == true && zn == true && i==7) {printf("1"); return;}
-                if (( number >> i ) & 1 != 0  )
-                    printf("%d", 0);
-                else
-                    printf("%d", 1);
+    void read_matrix_console()
+    {
+        double var;
+        for(int i=0; i<num_col; i++){
+            vector <double> str;
+            for(int j=0; j<num_str; j++){
+                cin>>var;
+                str.push_back(var);
+            }
+            base.push_back(str);
         }
     }
-}
 
-void write_all_byte(char *number, int len){
-    for(int i=0;i<len;i++){
-        write_byte(*number++, (i+1)%len==0 );
-        printf(" ");
+    void read_matrix_file()
+    {
+        ifstream in("Matrix.txt");
+        double var;
+        for(int i=0; i<num_col; i++){
+            vector <double> str;
+            for(int j=0; j<num_str; j++){
+                in>>var;
+                str.push_back(var);
+            }
+            base.push_back(str);
+        }
     }
-    printf("\n");
-}
 
-void write_reverso(char *number, int len){
-    for(int i=0;i<len;i++){
-        write_r_byte(*number++, (i+1)%len==0 );
-        printf(" ");
+    void show_matrix()
+    {
+    for(int i=0; i<num_col; i++){
+        for(int j=0; j<num_str; j++){
+            //printf("%e  ", &base[i][j]);
+            cout<<base[i][j]<<"  ";
+        }
+        cout<<endl;
     }
-    printf("\n");
-}
+  }
 
-void write_additional(char *number, int len){
-    last = true;
-    for(int i=0;i<len;i++){
-        write_a_byte(*number++, (i+1)%len==0 );
-        printf(" ");
-    }
-    printf("\n");
-}
+  void get_determenant(){
+    return;
+  }
 
-void write_info(long long a, int len, char *number){
-    printf("Straight code:   ");
-    write_all_byte(number, len);
-    printf("Reverse code:    ");
-    if(!zn)write_all_byte(number,len);else write_reverso(number, len);
-    printf("Additional code: ");
-    if(!zn)write_all_byte(number,len);else write_additional(number, len);
-    printf("Machine code:    ");
-    write_all_byte( (char *)&a, len);
-}
+  protected:
+  /*список средств, доступных при наследовании*/
+};
+
+void show(){}
 
 int main()
 {
-    int a;
-    cin>>a;
-    zn = false;
-    long long h=a;
-    if(a<0){h=abs(a); zn = true;}
-    char *number = (char *)&h;
-    write_info(a,sizeof(short), number);
-
-    short b;
-    cin>>b;
-    zn = false;
-    h=b;
-    if(b<0){h=abs(b); zn = true;}
-    char *numberb = (char *)&h;
-    write_info(b,sizeof(int), numberb);
-
-    long long c;
-    cin>>c;
-    zn = false;
-    h=c;
-    if(c<0){h=abs(c); zn = true;}
-    char *numberc = (char *)&h;
-    write_info(c,sizeof(long long), numberc);
+    int n, l;
+    cin>>n>>l;
+    Matrix A(n, l);
+    A.read_matrix_random();
+    A.show_matrix();
     return 0;
 }
