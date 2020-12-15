@@ -18,7 +18,7 @@ class Matrix
   };
 
   void get_determenant(){
-    
+    determenant = 12.0;
     return;
   }
   
