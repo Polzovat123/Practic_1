@@ -11,8 +11,100 @@ private:
     long long str, stl;
     long double det;
     bool calculus = false;
+    bool calc_inA = false;
     vector <vector <long double>> table;
+    vector <vector <long double>> E;
+    vector <vector <long double>> inA;
     vector <long double> srt;
+
+
+
+    bool check_and_message_zero_det(){
+        if( abs(abs(det) - 0.0) < 0.0001 ){
+            printf("Determenant zero => we can`t find inverse matrix");
+            return true;
+        }
+        return false;
+    }
+
+    void init_E(){
+        vector <long double> line;
+        for(int i=0; i<str; i++){
+            line.clear();
+            for(int j=0; j<str; j++){
+                if(i!=j)line.push_back(0.0);
+                else line.push_back(1.0);
+            }
+            E.push_back(line);
+        }
+    }
+
+    void init_inA(){
+        vector <long double> line;
+        for(int i=0; i<str; i++){
+            line.clear();
+            for(int j=0; j<str; j++){
+                line.push_back(table[i][j]);
+            }
+            inA.push_back(line);
+        }
+    }
+
+    void cut_the_line(int now_line, long double k){
+        for(int i=0; i<stl; i++){
+            inA[now_line][i] /= k;
+            E[now_line][i] /=k;
+        }
+    }
+
+    void change_line_matrixs(int i_f, int i_n, int k){
+        for(int i=0; i<stl; i++){
+            inA[i_n][i]-=k*inA[i_f][i];
+            E[i_n][i] -= k*E[i_f][i];
+        }
+    }
+
+    void change_remainder_matrix(int now_line){
+        for(int i=now_line+1; i<str; i++){
+            long double k = inA[i][now_line]/inA[now_line][now_line];
+            change_line_matrixs(now_line, i, k);
+        }
+        return;
+    }
+
+    void completion_of_the_matrix_above(int now_line){
+        for(int i=now_line-1; i>-1; i--){
+            change_line_matrixs(now_line, i, inA[i][i]);
+        }
+        return;
+    }
+
+    void swap_E_inA(){
+        return;
+    }
+
+    void calculus_inA(){
+        if(str!=stl){bad_matrix();return;}
+        if(check_and_message_zero_det()){return;}
+        init_E();
+        init_inA();
+        for(int i=0; i<str; i++){
+            change_remainder_matrix(i);
+            cut_the_line(i, inA[i][i]);
+        }
+
+        for(int i=str-1; i>-1; i--){
+            completion_of_the_matrix_above(i);
+        }
+        swap_E_inA();
+    }
+
+    bool check_have_inA(){
+        if(!calc_inA){
+            calculus_inA();
+            calc_inA = true;
+        }
+    }
 
     void bad_matrix(){
         cout<<"You Matrix not squire and determinant not"<<endl;
@@ -79,7 +171,26 @@ public:
         return det;
     }
 
-    vector<vector<long double>>&A(){}
+    void show_inverse_A(){
+        check_have_inA();
+        for(int i=0; i<str; i++){
+            for(int j=0; j<stl; j++){
+                printf("%.2Lf ", &inA[i][j]);
+            }
+            printf("\n");
+        }
+        printf("\n");
+    }
+
+    void show_E(){
+        for(int i=0; i<str; i++){
+            for(int j=0; j<stl; j++){
+                printf("%.2Lf ", &E[i][j]);
+            }
+            printf("\n");
+        }
+        printf("\n");
+    }
 
     void show(){
         for(int i=0; i<str; i++){
@@ -170,16 +281,24 @@ void write_determenant(long double det, string name){
     printf("det(%s)= %d", &name, &det);
 }
 
+void show_inverse(Matrix A){
+    cout<<endl<<"Inverse Matrix: "<<endl;
+    A.show_inverse_A();
+}
+
 void main_task(){
     //first
     read_data();
     Matrix a(n, m, input_table);
     a.show();
     cout<<"det(A) = "<<a.get_determnant()<<endl;
+    show_inverse(a)
+    a.show_E();
 
     read_data();
     Matrix b(n, m, input_table);
     b.show();
+    cout<<"det(B) = "<<b.get_determnant()<<endl;
 }
 
 int main()
